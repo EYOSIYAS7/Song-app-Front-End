@@ -51,6 +51,7 @@ function* updatesong(action) {
 
 function* deletesong(action) {
   console.log(action.payload);
+  console.log("delete song is called");
   try {
     yield axios.delete(`${apiUrl}delete/${action.payload}`);
     yield put(deletesongSuccess(action.payload));
