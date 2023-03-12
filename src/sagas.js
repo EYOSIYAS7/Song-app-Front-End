@@ -1,6 +1,5 @@
 import { put, takeLatest, all } from "redux-saga/effects";
 import axios from "axios";
-
 import {
   getsongsStart,
   getsongsSuccess,
@@ -39,7 +38,7 @@ function* createsong(action) {
 }
 
 function* updatesong(action) {
-  console.log("update song saga is called");
+  console.log("updatte song is called");
   try {
     const response = yield axios.post(
       `${apiUrl}change/${action.payload.id}`,
@@ -52,6 +51,7 @@ function* updatesong(action) {
 }
 
 function* deletesong(action) {
+  console.log(action.payload);
   console.log("delete song is called");
   try {
     yield axios.delete(`${apiUrl}delete/${action.payload}`);

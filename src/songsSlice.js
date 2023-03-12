@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useHistory } from "react-router-dom";
+
 export const initialState = {
   songs: [],
   loading: false,
   error: null,
 };
-const history = useHistory();
+
 const songsSlice = createSlice({
   name: "songs",
   initialState,
@@ -35,7 +35,7 @@ const songsSlice = createSlice({
       state.error = action.payload;
     },
     updatesongStart(state) {
-      console.log("update song start is called");
+      console.log("update song start is clalled");
       state.loading = true;
     },
     updatesongSuccess(state, action) {
@@ -43,15 +43,12 @@ const songsSlice = createSlice({
       state.songs = state.songs.map((song) =>
         song.id === action.payload.id ? action.payload : song
       );
-      window.location.reload(true);
-      history.push("/");
     },
     updatesongFailure(state, action) {
       state.loading = false;
       state.error = action.payload;
     },
     deletesongStart(state) {
-      console.log("delete song start is called ");
       state.loading = true;
     },
     deletesongSuccess(state, action) {

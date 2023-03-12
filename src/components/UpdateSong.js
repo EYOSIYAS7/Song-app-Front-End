@@ -105,19 +105,17 @@ const UpdateForm = () => {
 
   const dispatch = useDispatch();
   const handleUpdate = (id, title, artist, genre) => {
-    console.log("handle update is called ");
+    console.log("handle update is called");
     dispatch(updatesongStart({ id, title, artist, genre }));
   };
 
   const handleSubmit = (e) => {
-    console.log("handle submit is called");
     handleUpdate(
       id,
       e.target.title.value,
       e.target.genre.value,
       e.target.artist.value
     );
-    e.target.reset();
   };
 
   return (
