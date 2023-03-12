@@ -35,6 +35,7 @@ const songsSlice = createSlice({
       state.error = action.payload;
     },
     updatesongStart(state) {
+      console.log("update song start is called");
       state.loading = true;
     },
     updatesongSuccess(state, action) {

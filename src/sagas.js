@@ -38,6 +38,7 @@ function* createsong(action) {
 }
 
 function* updatesong(action) {
+  console.log("update song saga is called");
   try {
     const response = yield axios.post(
       `${apiUrl}change/${action.payload.id}`,
