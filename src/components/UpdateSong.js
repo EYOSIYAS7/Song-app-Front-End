@@ -116,8 +116,6 @@ const UpdateForm = () => {
       e.target.artist.value
     );
     e.target.reset();
-    window.location.reload(true);
-    history.push("/");
   };
 
   return (
