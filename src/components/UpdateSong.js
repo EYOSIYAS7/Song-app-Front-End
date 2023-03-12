@@ -105,6 +105,8 @@ const UpdateForm = () => {
   const dispatch = useDispatch();
   const handleUpdate = (id, title, artist, genre) => {
     dispatch(updatesongStart({ id, title, artist, genre }));
+    window.location.reload(true);
+    history.push("/");
   };
 
   const handleSubmit = (e) => {
