@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { useHistory } from "react-router-dom";
 export const initialState = {
   songs: [],
   loading: false,
   error: null,
 };
-
+const history = useHistory();
 const songsSlice = createSlice({
   name: "songs",
   initialState,
@@ -43,6 +43,8 @@ const songsSlice = createSlice({
       state.songs = state.songs.map((song) =>
         song.id === action.payload.id ? action.payload : song
       );
+      window.location.reload(true);
+      history.push("/");
     },
     updatesongFailure(state, action) {
       state.loading = false;
