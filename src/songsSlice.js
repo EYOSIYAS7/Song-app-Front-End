@@ -48,6 +48,7 @@ const songsSlice = createSlice({
       state.error = action.payload;
     },
     deletesongStart(state) {
+      console.log("delete song start is called ");
       state.loading = true;
     },
     deletesongSuccess(state, action) {
