@@ -102,7 +102,7 @@ const SongImage = styled.img`
 `;
 const UpdateForm = () => {
   const { id } = useParams();
-  const history = useHistory();
+
   const dispatch = useDispatch();
   const handleUpdate = (id, title, artist, genre) => {
     console.log("handle update is called ");
