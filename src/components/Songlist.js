@@ -142,6 +142,7 @@ const SongList = () => {
     return <Div>Error: {error}</Div>;
   }
   const handleDelete = (id) => {
+    console.log("handle delete is called");
     dispatch(deletesongStart(id));
     window.location.reload(true);
     history.push("/");
