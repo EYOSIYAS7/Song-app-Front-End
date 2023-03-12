@@ -15,7 +15,7 @@ import {
   deletesongFailure,
 } from "./songsSlice";
 
-const apiUrl = "https://song-app.onrender.com/";
+const apiUrl = "https://song-api-xfye.onrender.com/";
 
 function* getsongs() {
   console.log("get songs is called");
