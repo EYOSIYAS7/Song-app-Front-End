@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updatesongStart } from "../songsSlice";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const MainContainer = styled.div`
   max-width: 1024px;
   margin: 0 auto;
@@ -102,20 +102,27 @@ const SongImage = styled.img`
 `;
 const UpdateForm = () => {
   const { id } = useParams();
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const handleUpdate = (id, title, artist, genre) => {
-    console.log("handle update is called");
+    console.log("handle update is called ");
     dispatch(updatesongStart({ id, title, artist, genre }));
   };
 
   const handleSubmit = (e) => {
+    console.log("handle submit is called");
+
     handleUpdate(
       id,
       e.target.title.value,
       e.target.genre.value,
       e.target.artist.value
     );
+
+    setTimeout(() => {
+      history.push("/");
+      window.location.reload(true);
+    }, 1000);
   };
 
   return (
