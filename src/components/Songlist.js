@@ -88,7 +88,7 @@ const SongItem = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 350px;
+  height: 390px;
   padding: 20px;
   background-color: #282828;
   color: #fff;
@@ -107,7 +107,7 @@ const Div = styled.div`
 `;
 const SongImage = styled.img`
   width: 100%;
-  height: 200px;
+  height: 240px;
   object-fit: cover;
   border-radius: 10px;
 `;
@@ -119,7 +119,7 @@ const SongTitle = styled.h3`
 `;
 
 const SongArtist = styled.p`
-  margin: 0;
+  margin: 5px;
   font-size: 14px;
 `;
 
@@ -168,6 +168,8 @@ const SongList = () => {
             <SongImage src={song.imgUrl} alt={song.title} />
             <SongTitle>{song.title}</SongTitle>
             <SongArtist>{song.artist}</SongArtist>
+            <SongArtist>{song.genre}</SongArtist>
+
             <ButtonContainer>
               <UpdateBtn>
                 {" "}

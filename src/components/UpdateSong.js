@@ -50,7 +50,7 @@ const Div = styled.div`
   margin-right: 550px;
   margin-bottom: 15px;
   color: white;
-  font-size: 26px;
+  font-size: 23px;
   font-family: cursive;
   font-style: italic;
 `;
@@ -104,29 +104,26 @@ const UpdateForm = () => {
   const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
-  const handleUpdate = (id, title, artist, genre) => {
+  const handleUpdate = (id, title, artist, genre, imgUrl) => {
     console.log("handle update is called ");
     console.log("handle update is called ");
     console.log("handle update is called ");
     console.log("handle update is called ");
-    dispatch(updatesongStart({ id, title, artist, genre }));
+    dispatch(updatesongStart({ id, title, artist, genre, imgUrl }));
   };
 
   const handleSubmit = (e) => {
     console.log("handle submit is called");
-    console.log("handle submit is called");
-    console.log("handle submit is called");
-    console.log("handle submit is called");
-    console.log("handle submit is called");
+
     handleUpdate(
       id,
       e.target.title.value,
       e.target.genre.value,
-      e.target.artist.value
+      e.target.artist.value,
+      e.target.imgUrl.value
     );
 
     history.push("/");
-    window.location.reload(true);
   };
 
   return (
@@ -150,7 +147,7 @@ const UpdateForm = () => {
           alt=""
         />
         <StyledForm onSubmit={handleSubmit}>
-          <Div>update form</Div>
+          <Div>Make changes </Div>
           <StyledInput
             type="text"
             name="title"
@@ -178,7 +175,7 @@ const UpdateForm = () => {
           <StyledInput
             type="text"
             name="imgUrl"
-            placeholder="Image Url"
+            placeholder="Image URL from somewhere online"
             required
           />
 

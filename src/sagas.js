@@ -39,11 +39,13 @@ function* createsong(action) {
 
 function* updatesong(action) {
   console.log("updatte song is called");
+  console.log(action.payload.id);
   try {
-    const response = yield axios.put(
+    const response = yield axios.post(
       `${apiUrl}change/${action.payload.id}`,
       action.payload
     );
+    console.log("update api was called");
     yield put(updatesongSuccess(response.data));
   } catch (error) {
     yield put(updatesongFailure(error.message));

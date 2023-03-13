@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { createsongStart } from "../songsSlice";
 import { useDispatch } from "react-redux";
@@ -72,6 +72,15 @@ const HeadingF = styled.h1`
   font-family: cursive;
   font-style: italic;
 `;
+const Message = styled.h1`
+  margin-top: 7px;
+  margin-right: 360px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 18px;
+  font-family: cursive;
+  font-style: italic;
+`;
 const StyledButton = styled.button`
   align-self: center;
   background-color: #1db954;
@@ -100,6 +109,7 @@ const SongImage = styled.img`
 `;
 const Form = () => {
   const dispatch = useDispatch();
+  const [showMessage, setShowMessage] = useState();
   const handleCreate = (title, artist, genre, imgUrl) => {
     dispatch(createsongStart({ title, artist, genre, imgUrl }));
   };
@@ -113,6 +123,12 @@ const Form = () => {
       e.target.imgUrl.value
     );
     e.target.reset();
+
+    setShowMessage("new song is added");
+
+    setTimeout(() => {
+      setShowMessage("");
+    }, 3000);
   };
 
   return (
@@ -138,6 +154,8 @@ const Form = () => {
 
         <StyledForm onSubmit={handleSubmit}>
           <HeadingF>Insert your song information</HeadingF>
+          <Message>{showMessage}</Message>
+
           <StyledInput type="text" name="title" required placeholder="Title" />
 
           <StyledInput
@@ -153,7 +171,7 @@ const Form = () => {
             type="text"
             name="imgUrl"
             required
-            placeholder="Image Url"
+            placeholder="Image URl from somewhere online"
           />
 
           <StyledButton type="submit">Submit</StyledButton>
