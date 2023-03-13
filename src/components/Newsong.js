@@ -63,7 +63,15 @@ const StyledInput = styled.input`
     background-color: #e0e0e0;
   }
 `;
-
+const HeadingF = styled.h1`
+  margin-top: 25px;
+  margin-right: 360px;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 24px;
+  font-family: cursive;
+  font-style: italic;
+`;
 const StyledButton = styled.button`
   align-self: center;
   background-color: #1db954;
@@ -129,6 +137,7 @@ const Form = () => {
         />
 
         <StyledForm onSubmit={handleSubmit}>
+          <HeadingF>Insert your song information</HeadingF>
           <StyledInput type="text" name="title" required placeholder="Title" />
 
           <StyledInput
