@@ -40,7 +40,7 @@ function* createsong(action) {
 function* updatesong(action) {
   console.log("updatte song is called");
   try {
-    const response = yield axios.post(
+    const response = yield axios.put(
       `${apiUrl}change/${action.payload.id}`,
       action.payload
     );
