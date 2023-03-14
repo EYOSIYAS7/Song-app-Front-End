@@ -116,15 +116,20 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleCreate(
-      e.target.title.value,
-      e.target.genre.value,
-      e.target.artist.value,
-      e.target.imgUrl.value
-    );
-    e.target.reset();
 
-    setShowMessage("new song is added");
+    let imgurl = e.target.imgUrl.value;
+    if (imgurl.startsWith("https://")) {
+      handleCreate(
+        e.target.title.value,
+        e.target.genre.value,
+        e.target.artist.value,
+        e.target.imgUrl.value
+      );
+      e.target.reset();
+      setShowMessage("new song is added");
+    } else {
+      setShowMessage("check again the image url  ");
+    }
 
     setTimeout(() => {
       setShowMessage("");

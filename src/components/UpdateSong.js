@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -54,6 +54,15 @@ const Div = styled.div`
   font-family: cursive;
   font-style: italic;
 `;
+const Divm = styled.div`
+  margin-top: 7px;
+  margin-right: 550px;
+  margin-bottom: 7px;
+  color: white;
+  font-size: 18px;
+  font-family: cursive;
+  font-style: italic;
+`;
 const StyledInput = styled.input`
   margin-top: 20px;
   margin-right: 350px;
@@ -103,27 +112,32 @@ const SongImage = styled.img`
 const UpdateForm = () => {
   const { id } = useParams();
   const history = useHistory();
+  const [showMessage, setShowMessage] = useState();
   const dispatch = useDispatch();
   const handleUpdate = (id, title, artist, genre, imgUrl) => {
     console.log("handle update is called ");
-    console.log("handle update is called ");
-    console.log("handle update is called ");
-    console.log("handle update is called ");
+
     dispatch(updatesongStart({ id, title, artist, genre, imgUrl }));
   };
 
   const handleSubmit = (e) => {
     console.log("handle submit is called");
-
-    handleUpdate(
-      id,
-      e.target.title.value,
-      e.target.genre.value,
-      e.target.artist.value,
-      e.target.imgUrl.value
-    );
-
-    history.push("/");
+    let imgurl = e.target.imgUrl.value;
+    if (imgurl.startsWith("https://")) {
+      handleUpdate(
+        id,
+        e.target.title.value,
+        e.target.genre.value,
+        e.target.artist.value,
+        e.target.imgUrl.value
+      );
+      history.push("/");
+    } else {
+      setShowMessage("check again the image url");
+      setTimeout(() => {
+        setShowMessage("");
+      }, 3000);
+    }
   };
 
   return (
@@ -148,29 +162,17 @@ const UpdateForm = () => {
         />
         <StyledForm onSubmit={handleSubmit}>
           <Div>Make changes </Div>
-          <StyledInput
-            type="text"
-            name="title"
-            //   value={formData.name}
-            placeholder="Title"
-            required
-          />
+          <Divm>{showMessage} </Divm>
+          <StyledInput type="text" name="title" placeholder="Title" required />
 
           <StyledInput
             type="text"
             name="artist"
-            //   value={formData.email}
             placeholder="Artists"
             required
           />
 
-          <StyledInput
-            type="text"
-            name="genre"
-            //   value={formData.message}
-            placeholder="Genre"
-            required
-          />
+          <StyledInput type="text" name="genre" placeholder="Genre" required />
 
           <StyledInput
             type="text"
