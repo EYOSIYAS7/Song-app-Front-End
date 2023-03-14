@@ -20,6 +20,9 @@ const Heading = styled.h1`
   font-weight: 700;
   margin: 0;
   color: white;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 const Button = styled.button`
   background-color: #1db954;
@@ -37,6 +40,7 @@ const Button = styled.button`
     background-color: #1ed760;
   }
 `;
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -62,6 +66,9 @@ const StyledInput = styled.input`
     outline: none;
     background-color: #e0e0e0;
   }
+  @media (max-width: 768px) {
+    width: 200px;
+  }
 `;
 const HeadingF = styled.h1`
   margin-top: 25px;
@@ -71,6 +78,9 @@ const HeadingF = styled.h1`
   font-size: 24px;
   font-family: cursive;
   font-style: italic;
+  @media (max-width: 768px) {
+    font-size: 20x;
+  }
 `;
 const Message = styled.h1`
   margin-top: 7px;
@@ -80,6 +90,9 @@ const Message = styled.h1`
   font-size: 18px;
   font-family: cursive;
   font-style: italic;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 const StyledButton = styled.button`
   align-self: center;
@@ -99,6 +112,9 @@ const StyledButton = styled.button`
   &:hover {
     background-color: #1ed760;
   }
+  @media (max-width: 768px) {
+    width: 90px;
+  }
 `;
 const SongImage = styled.img`
   width: 500px;
@@ -106,6 +122,10 @@ const SongImage = styled.img`
   object-fit: cover;
   border-radius: 10px;
   margin-left: 50px;
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
 `;
 const Form = () => {
   const dispatch = useDispatch();

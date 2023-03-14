@@ -53,6 +53,13 @@ const Div = styled.div`
   font-size: 23px;
   font-family: cursive;
   font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+
+    margin-bottom: 3px;
+    width: 200px;
+  }
 `;
 const Divm = styled.div`
   margin-top: 7px;
@@ -62,6 +69,9 @@ const Divm = styled.div`
   font-size: 18px;
   font-family: cursive;
   font-style: italic;
+  @media (max-width: 768px) {
+    width: 14px;
+  }
 `;
 const StyledInput = styled.input`
   margin-top: 20px;
@@ -80,6 +90,9 @@ const StyledInput = styled.input`
   &:focus {
     outline: none;
     background-color: #e0e0e0;
+  }
+  @media (max-width: 768px) {
+    width: 200px;
   }
 `;
 
@@ -101,6 +114,10 @@ const StyledButton = styled.button`
   &:hover {
     background-color: #1ed760;
   }
+  @media (max-width: 768px) {
+    width: 90px;
+    margin-left: -500px;
+  }
 `;
 const SongImage = styled.img`
   width: 500px;
@@ -108,6 +125,10 @@ const SongImage = styled.img`
   object-fit: cover;
   border-radius: 10px;
   margin-left: 50px;
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
 `;
 const UpdateForm = () => {
   const { id } = useParams();
